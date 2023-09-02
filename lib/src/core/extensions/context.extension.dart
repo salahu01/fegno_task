@@ -9,4 +9,7 @@ extension ContextX on BuildContext {
 
   //* this methord for to previous page
   void pop() => Navigator.pop(this);
+
+  //* This methord for get sceen size
+  Size get sizeOf => MediaQuery.sizeOf(this);
 }
