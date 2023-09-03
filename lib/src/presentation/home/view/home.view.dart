@@ -60,10 +60,10 @@ class HomeView extends StatelessWidget {
                 .toList(),
           ),
         ),
-        body: const TabBarView(
+        body:  TabBarView(
           children: [
-            ShopView(),
-            ItemsView(),
+            const ShopView(),
+            const ItemsView(),
             BagView(),
           ],
         ),

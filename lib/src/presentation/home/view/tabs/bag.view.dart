@@ -1,3 +1,5 @@
+import 'package:fegno_task/src/presentation/home/widgets/button.widget.dart';
+import 'package:fegno_task/src/presentation/home/widgets/message.widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fegno_task/src/application/bloc/home_bloc.dart';
@@ -8,7 +10,8 @@ import 'package:fegno_task/src/core/theme/app.colors.dart';
 import 'package:flutter/material.dart';
 
 class BagView extends StatelessWidget {
-  const BagView({super.key});
+  BagView({super.key});
+  final times = ['10 am to 12 pm', '12 pm to 2 pm', '2 pm to 4 pm'];
 
   @override
   Widget build(BuildContext context) {
@@ -121,181 +124,149 @@ class BagView extends StatelessWidget {
                     );
                   }),
             ),
-          ),
+          ).pOnly(bottom: 12),
 
-          //* Coupons Widget
-          Align(
-            alignment: Alignment.topLeft,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Card(
-                  child: SizedBox(
-                    width: context.sizeOf.width * 0.9,
-                    child: const Text('Add products worth \$10 to avall coupons'),
-                  ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: context.theme.primaryColor,
-                    padding: EdgeInsets.zero,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {},
-                  child: SizedBox(
-                    width: context.sizeOf.width * 0.9,
-                    child: const Center(child: Text('Proceed')),
-                  ),
-                ),
-                Card(
-                  child: SizedBox(
-                    width: context.sizeOf.width * 0.9,
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.discount_outlined,
-                        color: context.theme.primaryColor,
-                      ),
-                      title: const Text('9 Unused Coupons'),
-                      subtitle: const Text('Apply coupon and get discount'),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
-                    padding: EdgeInsets.zero,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {},
-                  child: SizedBox(
-                    width: context.sizeOf.width * 0.9,
-                    child: Center(
-                      child: Text(
-                        'Continue without applying',
-                        style: TextStyle(color: context.theme.primaryColor),
+          //* Coupon Widgets
+          BlocBuilder<HomeBloc, HomeState>(
+              buildWhen: (previous, current) => previous.showApplyCoupon != current.showApplyCoupon || previous.selectedCoupon != current.selectedCoupon,
+              builder: (context, state) {
+                if (state.selectedCoupon != null) {
+                  return Visibility(
+                    visible: state.selectedCoupon == -1,
+                    replacement: Align(
+                      alignment: Alignment.topRight,
+                      child: SizedBox(
+                        width: context.sizeOf.width * 0.4,
+                        child: Card(
+                          color: Colors.green.shade100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  'assets/gift box.png',
+                                  height: 180,
+                                  fit: BoxFit.cover,
+                                ),
+                              ).pOnly(bottom: 12),
+                              const Text('Yahoo!!!'),
+                              const Text('I won \$ 2'),
+                            ],
+                          ).pad(12),
+                        ),
                       ),
                     ),
+                    child: const Message(isUser: true, text: 'Continue without applying').pOnly(bottom: 12),
+                  );
+                }
+                return Visibility(
+                  visible: state.showApplyCoupon,
+                  replacement: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Message(isUser: false, text: 'Add products worth \$10 to avall coupons'),
+                      KButton(
+                        text: 'Proceed',
+                        onPressed: () {
+                          context.read<HomeBloc>().add(const HomeEvent.showApplyCoupon());
+                        },
+                      ).pSymmetric(y: 12),
+                    ],
                   ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: context.theme.primaryColor,
-                    padding: EdgeInsets.zero,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {},
-                  child: SizedBox(
-                    width: context.sizeOf.width * 0.9,
-                    child: const Center(child: Text('Apply coupon')),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          //* Success Coupon Widget
-          Align(
-            alignment: Alignment.topRight,
-            child: SizedBox(
-              width: context.sizeOf.width * 0.4,
-              child: Card(
-                color: Colors.green.shade100,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        'assets/gift box.png',
-                        height: 180,
-                        fit: BoxFit.cover,
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Card(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          child: SizedBox(
+                            width: context.sizeOf.width * 0.9,
+                            child: ListTile(
+                              leading: Icon(
+                                Icons.discount_outlined,
+                                color: context.theme.primaryColor,
+                              ),
+                              title: const Text('9 Unused Coupons'),
+                              subtitle: const Text('Apply coupon and get discount'),
+                            ),
+                          ),
+                        ),
                       ),
-                    ).pOnly(bottom: 12),
-                    const Text('Yahoo!!!'),
-                    const Text('I won \$ 2'),
-                  ],
-                ).pad(12),
-              ),
-            ),
-          ),
+                      KButton(
+                        text: 'Continue without applying',
+                        isWhite: true,
+                        onPressed: () {
+                          context.read<HomeBloc>().add(const HomeEvent.selectCoupon());
+                        },
+                      ).pOnly(bottom: 12),
+                      const KButton(text: 'Apply coupon').pOnly(bottom: 12)
+                    ],
+                  ),
+                );
+              }),
 
-          //*
-          Align(
-            alignment: Alignment.topLeft,
-            child: Card(
-              child: SizedBox(
-                width: context.sizeOf.width * 0.9,
-                child: const Text('Select delivery methord'),
-              ),
-            ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.white,
-              padding: EdgeInsets.zero,
-              shape: const StadiumBorder(),
-            ),
-            onPressed: () {},
-            child: SizedBox(
-              width: context.sizeOf.width * 0.9,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.home,
-                    color: context.theme.primaryColor,
-                  ),
-                  const Text(
-                    'Home delivery',
-                    style: TextStyle(color: AppColors.black),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.white,
-              padding: EdgeInsets.zero,
-              shape: const StadiumBorder(),
-            ),
-            onPressed: () {},
-            child: SizedBox(
-              width: context.sizeOf.width * 0.9,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.store_mall_directory_outlined,
-                    color: context.theme.primaryColor,
-                  ),
-                  const Text(
-                    'Take away',
-                    style: TextStyle(color: AppColors.black),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          //* select delivery methord
+          BlocBuilder<HomeBloc, HomeState>(
+              buildWhen: (previous, current) => previous.deliveryMethord != current.deliveryMethord,
+              builder: (context, state) {
+                return Visibility(
+                    visible: state.deliveryMethord == null,
+                    replacement: Message(isUser: true, text: 'I prefer ${state.deliveryMethord}').pOnly(bottom: 12),
+                    child: Column(
+                      children: [
+                        const Message(isUser: false, text: 'Select delivery methord').pOnly(bottom: 6),
+                        KButton(
+                          onPressed: () {
+                            context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Home delivery'));
+                          },
+                          isWhite: true,
+                          text: 'Home delivery',
+                          icon: Icons.home,
+                        ).pOnly(bottom: 6),
+                        KButton(
+                          onPressed: () {
+                            context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Take away'));
+                          },
+                          isWhite: true,
+                          text: 'Take away',
+                          icon: Icons.store_mall_directory_outlined,
+                        ),
+                      ],
+                    ));
+              }),
 
-          //*
-          Align(
-            alignment: Alignment.topRight,
-            child: Card(
-              color: Colors.green.shade100,
-              child: const Text('I prefer Take away'),
-            ),
-          ),
-
-          //*
-          Align(
-            alignment: Alignment.topLeft,
-            child: SizedBox(
-              width: context.sizeOf.width * 0.9,
-              child: const Card(
-                child: Text('Please select a time slot to collect the products from our store'),
-              ),
-            ),
-          ),
+          //* Select TimeSlots
+          BlocBuilder<HomeBloc, HomeState>(
+              buildWhen: (previous, current) => previous.takeAwayTime != current.takeAwayTime,
+              builder: (context, state) {
+                return Visibility(
+                  visible: state.takeAwayTime == null,
+                  replacement: Message(isUser: true, text: 'I prefer ${state.takeAwayTime}').pOnly(bottom: 12),
+                  child: Column(
+                    children: [
+                      const Message(isUser: false, text: 'Please select a time slot to collect the products from our store'),
+                      GridView.count(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        childAspectRatio: 4.5,
+                        shrinkWrap: true,
+                        children: times
+                            .map(
+                              (e) => KButton(
+                                text: e,
+                                isWhite: true,
+                                onPressed: () {
+                                  context.read<HomeBloc>().add(HomeEvent.selectTakeAwayTime(e));
+                                },
+                              ),
+                            )
+                            .toList(),
+                      ).pSymmetric(y: 12),
+                    ],
+                  ),
+                );
+              }),
         ],
       ).pad(8),
     );

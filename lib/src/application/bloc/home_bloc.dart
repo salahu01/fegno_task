@@ -13,6 +13,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(showCart: !state.showCart));
     });
 
+    on<_ShowApplyCoupon>((event, emit) {
+      emit(state.copyWith(showApplyCoupon: true));
+    });
+
+    on<_SelectCoupon>((event, emit) {
+      emit(state.copyWith(selectedCoupon: event.discount ?? -1));
+    });
+
+    on<_SelectDeliveryMethord>((event, emit) {
+      emit(state.copyWith(deliveryMethord: event.deliveryMethird));
+    });
+
+    on<_SelectTakeAwayTime>((event, emit) {
+      emit(state.copyWith(takeAwayTime: event.time));
+    });
+
     on<_UpdateCart>((event, emit) {
       final products = [...state.products];
       if (products[event.index].count == 1 && !event.isIncrement) {
@@ -22,7 +38,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       products[event.index] = products[event.index].copyWith(
         count: count,
       );
-
       emit(state.copyWith(products: products));
     });
   }
