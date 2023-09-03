@@ -1,7 +1,8 @@
-import 'package:fegno_task/src/core/extensions/context.extension.dart';
-import 'package:fegno_task/src/core/extensions/textstyle.extension.dart';
 import 'package:fegno_task/src/core/extensions/widget.extension.dart';
 import 'package:fegno_task/src/core/theme/app.colors.dart';
+import 'package:fegno_task/src/presentation/home/view/tabs/bag.view.dart';
+import 'package:fegno_task/src/presentation/home/view/tabs/items.view.dart';
+import 'package:fegno_task/src/presentation/home/view/tabs/shop.view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,16 +17,17 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
+      initialIndex: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Zappy'),
+          title: const Text('Zappy'),
           actions: [
-            Icon(
+            const Icon(
               Icons.notifications_none_outlined,
               color: AppColors.white,
               size: 30,
             ),
-            Icon(
+            const Icon(
               Icons.more_vert,
               color: AppColors.white,
               size: 30,
@@ -33,8 +35,8 @@ class HomeView extends StatelessWidget {
           ],
           bottom: TabBar(
             indicatorWeight: 0.5,
-            indicatorPadding: EdgeInsets.symmetric(horizontal: 20),
-            indicator: UnderlineTabIndicator(
+            indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
+            indicator: const UnderlineTabIndicator(
               borderSide: BorderSide(color: AppColors.white, width: 3),
             ),
             tabs: tabs
@@ -49,7 +51,7 @@ class HomeView extends StatelessWidget {
                         ).pOnly(right: 8),
                         Text(
                           e['label'],
-                          style: TextStyle(color: AppColors.white, fontWeight: FontWeight.w500, fontSize: 18),
+                          style: const TextStyle(color: AppColors.white, fontWeight: FontWeight.w500, fontSize: 18),
                         ),
                       ],
                     ),
@@ -57,6 +59,13 @@ class HomeView extends StatelessWidget {
                 )
                 .toList(),
           ),
+        ),
+        body: const TabBarView(
+          children: [
+            ShopView(),
+            ItemsView(),
+            BagView(),
+          ],
         ),
       ),
     );

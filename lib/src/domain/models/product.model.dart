@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-final class ProductModel {
-  final num price;
-  final String name;
-  final String image;
-  final int count;
+part 'product.model.freezed.dart';
 
-  const ProductModel({
-    required this.price,
-    required this.name,
-    required this.image,
-    required this.count,
-  });
+@freezed
+class ProductModel with _$ProductModel {
+  const factory ProductModel({
+    required num price,
+    required String name,
+    required String image,
+    required int count,
+  }) = _ProductModel;
 }
