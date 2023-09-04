@@ -20,30 +20,36 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,31 +57,37 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,10 +150,12 @@ class _$_ShowCart implements _ShowCart {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
     return showCart();
   }
@@ -151,10 +165,12 @@ class _$_ShowCart implements _ShowCart {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
     return showCart?.call();
   }
@@ -164,10 +180,12 @@ class _$_ShowCart implements _ShowCart {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
     if (showCart != null) {
@@ -181,11 +199,13 @@ class _$_ShowCart implements _ShowCart {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
     return showCart(this);
   }
@@ -195,10 +215,12 @@ class _$_ShowCart implements _ShowCart {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
     return showCart?.call(this);
   }
@@ -208,10 +230,12 @@ class _$_ShowCart implements _ShowCart {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
     if (showCart != null) {
@@ -300,10 +324,12 @@ class _$_UpdateCart implements _UpdateCart {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
     return updateCart(isIncrement, index);
   }
@@ -313,10 +339,12 @@ class _$_UpdateCart implements _UpdateCart {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
     return updateCart?.call(isIncrement, index);
   }
@@ -326,10 +354,12 @@ class _$_UpdateCart implements _UpdateCart {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
     if (updateCart != null) {
@@ -343,11 +373,13 @@ class _$_UpdateCart implements _UpdateCart {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
     return updateCart(this);
   }
@@ -357,10 +389,12 @@ class _$_UpdateCart implements _UpdateCart {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
     return updateCart?.call(this);
   }
@@ -370,10 +404,12 @@ class _$_UpdateCart implements _UpdateCart {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
     if (updateCart != null) {
@@ -395,51 +431,80 @@ abstract class _UpdateCart implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$$_ShowApplyCouponCopyWith<$Res> {
-  factory _$$_ShowApplyCouponCopyWith(
-          _$_ShowApplyCoupon value, $Res Function(_$_ShowApplyCoupon) then) =
-      __$$_ShowApplyCouponCopyWithImpl<$Res>;
+abstract class _$$_UpdateContentsLengthCopyWith<$Res> {
+  factory _$$_UpdateContentsLengthCopyWith(_$_UpdateContentsLength value,
+          $Res Function(_$_UpdateContentsLength) then) =
+      __$$_UpdateContentsLengthCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int length});
 }
 
 /// @nodoc
-class __$$_ShowApplyCouponCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_ShowApplyCoupon>
-    implements _$$_ShowApplyCouponCopyWith<$Res> {
-  __$$_ShowApplyCouponCopyWithImpl(
-      _$_ShowApplyCoupon _value, $Res Function(_$_ShowApplyCoupon) _then)
+class __$$_UpdateContentsLengthCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_UpdateContentsLength>
+    implements _$$_UpdateContentsLengthCopyWith<$Res> {
+  __$$_UpdateContentsLengthCopyWithImpl(_$_UpdateContentsLength _value,
+      $Res Function(_$_UpdateContentsLength) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? length = null,
+  }) {
+    return _then(_$_UpdateContentsLength(
+      null == length
+          ? _value.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_ShowApplyCoupon implements _ShowApplyCoupon {
-  const _$_ShowApplyCoupon();
+class _$_UpdateContentsLength implements _UpdateContentsLength {
+  const _$_UpdateContentsLength(this.length);
+
+  @override
+  final int length;
 
   @override
   String toString() {
-    return 'HomeEvent.showApplyCoupon()';
+    return 'HomeEvent.updateContentsLength(length: $length)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ShowApplyCoupon);
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateContentsLength &&
+            (identical(other.length, length) || other.length == length));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, length);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateContentsLengthCopyWith<_$_UpdateContentsLength> get copyWith =>
+      __$$_UpdateContentsLengthCopyWithImpl<_$_UpdateContentsLength>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
-    return showApplyCoupon();
+    return updateContentsLength(length);
   }
 
   @override
@@ -447,12 +512,14 @@ class _$_ShowApplyCoupon implements _ShowApplyCoupon {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
-    return showApplyCoupon?.call();
+    return updateContentsLength?.call(length);
   }
 
   @override
@@ -460,14 +527,16 @@ class _$_ShowApplyCoupon implements _ShowApplyCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
-    if (showApplyCoupon != null) {
-      return showApplyCoupon();
+    if (updateContentsLength != null) {
+      return updateContentsLength(length);
     }
     return orElse();
   }
@@ -477,13 +546,15 @@ class _$_ShowApplyCoupon implements _ShowApplyCoupon {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
-    return showApplyCoupon(this);
+    return updateContentsLength(this);
   }
 
   @override
@@ -491,12 +562,14 @@ class _$_ShowApplyCoupon implements _ShowApplyCoupon {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
-    return showApplyCoupon?.call(this);
+    return updateContentsLength?.call(this);
   }
 
   @override
@@ -504,21 +577,29 @@ class _$_ShowApplyCoupon implements _ShowApplyCoupon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
-    if (showApplyCoupon != null) {
-      return showApplyCoupon(this);
+    if (updateContentsLength != null) {
+      return updateContentsLength(this);
     }
     return orElse();
   }
 }
 
-abstract class _ShowApplyCoupon implements HomeEvent {
-  const factory _ShowApplyCoupon() = _$_ShowApplyCoupon;
+abstract class _UpdateContentsLength implements HomeEvent {
+  const factory _UpdateContentsLength(final int length) =
+      _$_UpdateContentsLength;
+
+  int get length;
+  @JsonKey(ignore: true)
+  _$$_UpdateContentsLengthCopyWith<_$_UpdateContentsLength> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -588,10 +669,12 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
     return selectCoupon(discount);
   }
@@ -601,10 +684,12 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
     return selectCoupon?.call(discount);
   }
@@ -614,10 +699,12 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectCoupon != null) {
@@ -631,11 +718,13 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
     return selectCoupon(this);
   }
@@ -645,10 +734,12 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
     return selectCoupon?.call(this);
   }
@@ -658,10 +749,12 @@ class _$_SelectCoupon implements _SelectCoupon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectCoupon != null) {
@@ -748,10 +841,12 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
     return selectDeliveryMethord(deliveryMethird);
   }
@@ -761,10 +856,12 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
     return selectDeliveryMethord?.call(deliveryMethird);
   }
@@ -774,10 +871,12 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectDeliveryMethord != null) {
@@ -791,11 +890,13 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
     return selectDeliveryMethord(this);
   }
@@ -805,10 +906,12 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
     return selectDeliveryMethord?.call(this);
   }
@@ -818,10 +921,12 @@ class _$_SelectDeliveryMethord implements _SelectDeliveryMethord {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectDeliveryMethord != null) {
@@ -908,10 +1013,12 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult when<TResult extends Object?>({
     required TResult Function() showCart,
     required TResult Function(bool isIncrement, int index) updateCart,
-    required TResult Function() showApplyCoupon,
+    required TResult Function(int length) updateContentsLength,
     required TResult Function(num? discount) selectCoupon,
     required TResult Function(String deliveryMethird) selectDeliveryMethord,
     required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
   }) {
     return selectTakeAwayTime(time);
   }
@@ -921,10 +1028,12 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? showCart,
     TResult? Function(bool isIncrement, int index)? updateCart,
-    TResult? Function()? showApplyCoupon,
+    TResult? Function(int length)? updateContentsLength,
     TResult? Function(num? discount)? selectCoupon,
     TResult? Function(String deliveryMethird)? selectDeliveryMethord,
     TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
   }) {
     return selectTakeAwayTime?.call(time);
   }
@@ -934,10 +1043,12 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showCart,
     TResult Function(bool isIncrement, int index)? updateCart,
-    TResult Function()? showApplyCoupon,
+    TResult Function(int length)? updateContentsLength,
     TResult Function(num? discount)? selectCoupon,
     TResult Function(String deliveryMethird)? selectDeliveryMethord,
     TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectTakeAwayTime != null) {
@@ -951,11 +1062,13 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult map<TResult extends Object?>({
     required TResult Function(_ShowCart value) showCart,
     required TResult Function(_UpdateCart value) updateCart,
-    required TResult Function(_ShowApplyCoupon value) showApplyCoupon,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
     required TResult Function(_SelectCoupon value) selectCoupon,
     required TResult Function(_SelectDeliveryMethord value)
         selectDeliveryMethord,
     required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
   }) {
     return selectTakeAwayTime(this);
   }
@@ -965,10 +1078,12 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ShowCart value)? showCart,
     TResult? Function(_UpdateCart value)? updateCart,
-    TResult? Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
     TResult? Function(_SelectCoupon value)? selectCoupon,
     TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
   }) {
     return selectTakeAwayTime?.call(this);
   }
@@ -978,10 +1093,12 @@ class _$_SelectTakeAwayTime implements _SelectTakeAwayTime {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ShowCart value)? showCart,
     TResult Function(_UpdateCart value)? updateCart,
-    TResult Function(_ShowApplyCoupon value)? showApplyCoupon,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
     TResult Function(_SelectCoupon value)? selectCoupon,
     TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
     TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
     required TResult orElse(),
   }) {
     if (selectTakeAwayTime != null) {
@@ -1001,12 +1118,356 @@ abstract class _SelectTakeAwayTime implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$_AddInstructionCopyWith<$Res> {
+  factory _$$_AddInstructionCopyWith(
+          _$_AddInstruction value, $Res Function(_$_AddInstruction) then) =
+      __$$_AddInstructionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String instruction});
+}
+
+/// @nodoc
+class __$$_AddInstructionCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_AddInstruction>
+    implements _$$_AddInstructionCopyWith<$Res> {
+  __$$_AddInstructionCopyWithImpl(
+      _$_AddInstruction _value, $Res Function(_$_AddInstruction) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? instruction = null,
+  }) {
+    return _then(_$_AddInstruction(
+      null == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddInstruction implements _AddInstruction {
+  const _$_AddInstruction(this.instruction);
+
+  @override
+  final String instruction;
+
+  @override
+  String toString() {
+    return 'HomeEvent.addInstruction(instruction: $instruction)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddInstruction &&
+            (identical(other.instruction, instruction) ||
+                other.instruction == instruction));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, instruction);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddInstructionCopyWith<_$_AddInstruction> get copyWith =>
+      __$$_AddInstructionCopyWithImpl<_$_AddInstruction>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() showCart,
+    required TResult Function(bool isIncrement, int index) updateCart,
+    required TResult Function(int length) updateContentsLength,
+    required TResult Function(num? discount) selectCoupon,
+    required TResult Function(String deliveryMethird) selectDeliveryMethord,
+    required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
+  }) {
+    return addInstruction(instruction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? showCart,
+    TResult? Function(bool isIncrement, int index)? updateCart,
+    TResult? Function(int length)? updateContentsLength,
+    TResult? Function(num? discount)? selectCoupon,
+    TResult? Function(String deliveryMethird)? selectDeliveryMethord,
+    TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
+  }) {
+    return addInstruction?.call(instruction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? showCart,
+    TResult Function(bool isIncrement, int index)? updateCart,
+    TResult Function(int length)? updateContentsLength,
+    TResult Function(num? discount)? selectCoupon,
+    TResult Function(String deliveryMethird)? selectDeliveryMethord,
+    TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
+    required TResult orElse(),
+  }) {
+    if (addInstruction != null) {
+      return addInstruction(instruction);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ShowCart value) showCart,
+    required TResult Function(_UpdateCart value) updateCart,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
+    required TResult Function(_SelectCoupon value) selectCoupon,
+    required TResult Function(_SelectDeliveryMethord value)
+        selectDeliveryMethord,
+    required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
+  }) {
+    return addInstruction(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ShowCart value)? showCart,
+    TResult? Function(_UpdateCart value)? updateCart,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
+    TResult? Function(_SelectCoupon value)? selectCoupon,
+    TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
+    TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
+  }) {
+    return addInstruction?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ShowCart value)? showCart,
+    TResult Function(_UpdateCart value)? updateCart,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
+    TResult Function(_SelectCoupon value)? selectCoupon,
+    TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
+    TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
+    required TResult orElse(),
+  }) {
+    if (addInstruction != null) {
+      return addInstruction(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddInstruction implements HomeEvent {
+  const factory _AddInstruction(final String instruction) = _$_AddInstruction;
+
+  String get instruction;
+  @JsonKey(ignore: true)
+  _$$_AddInstructionCopyWith<_$_AddInstruction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PlaceOrderCopyWith<$Res> {
+  factory _$$_PlaceOrderCopyWith(
+          _$_PlaceOrder value, $Res Function(_$_PlaceOrder) then) =
+      __$$_PlaceOrderCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool placeOrder});
+}
+
+/// @nodoc
+class __$$_PlaceOrderCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_PlaceOrder>
+    implements _$$_PlaceOrderCopyWith<$Res> {
+  __$$_PlaceOrderCopyWithImpl(
+      _$_PlaceOrder _value, $Res Function(_$_PlaceOrder) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? placeOrder = null,
+  }) {
+    return _then(_$_PlaceOrder(
+      null == placeOrder
+          ? _value.placeOrder
+          : placeOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PlaceOrder implements _PlaceOrder {
+  const _$_PlaceOrder(this.placeOrder);
+
+  @override
+  final bool placeOrder;
+
+  @override
+  String toString() {
+    return 'HomeEvent.placeOrder(placeOrder: $placeOrder)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlaceOrder &&
+            (identical(other.placeOrder, placeOrder) ||
+                other.placeOrder == placeOrder));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, placeOrder);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlaceOrderCopyWith<_$_PlaceOrder> get copyWith =>
+      __$$_PlaceOrderCopyWithImpl<_$_PlaceOrder>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() showCart,
+    required TResult Function(bool isIncrement, int index) updateCart,
+    required TResult Function(int length) updateContentsLength,
+    required TResult Function(num? discount) selectCoupon,
+    required TResult Function(String deliveryMethird) selectDeliveryMethord,
+    required TResult Function(String time) selectTakeAwayTime,
+    required TResult Function(String instruction) addInstruction,
+    required TResult Function(bool placeOrder) placeOrder,
+  }) {
+    return placeOrder(this.placeOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? showCart,
+    TResult? Function(bool isIncrement, int index)? updateCart,
+    TResult? Function(int length)? updateContentsLength,
+    TResult? Function(num? discount)? selectCoupon,
+    TResult? Function(String deliveryMethird)? selectDeliveryMethord,
+    TResult? Function(String time)? selectTakeAwayTime,
+    TResult? Function(String instruction)? addInstruction,
+    TResult? Function(bool placeOrder)? placeOrder,
+  }) {
+    return placeOrder?.call(this.placeOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? showCart,
+    TResult Function(bool isIncrement, int index)? updateCart,
+    TResult Function(int length)? updateContentsLength,
+    TResult Function(num? discount)? selectCoupon,
+    TResult Function(String deliveryMethird)? selectDeliveryMethord,
+    TResult Function(String time)? selectTakeAwayTime,
+    TResult Function(String instruction)? addInstruction,
+    TResult Function(bool placeOrder)? placeOrder,
+    required TResult orElse(),
+  }) {
+    if (placeOrder != null) {
+      return placeOrder(this.placeOrder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ShowCart value) showCart,
+    required TResult Function(_UpdateCart value) updateCart,
+    required TResult Function(_UpdateContentsLength value) updateContentsLength,
+    required TResult Function(_SelectCoupon value) selectCoupon,
+    required TResult Function(_SelectDeliveryMethord value)
+        selectDeliveryMethord,
+    required TResult Function(_SelectTakeAwayTime value) selectTakeAwayTime,
+    required TResult Function(_AddInstruction value) addInstruction,
+    required TResult Function(_PlaceOrder value) placeOrder,
+  }) {
+    return placeOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ShowCart value)? showCart,
+    TResult? Function(_UpdateCart value)? updateCart,
+    TResult? Function(_UpdateContentsLength value)? updateContentsLength,
+    TResult? Function(_SelectCoupon value)? selectCoupon,
+    TResult? Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
+    TResult? Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult? Function(_AddInstruction value)? addInstruction,
+    TResult? Function(_PlaceOrder value)? placeOrder,
+  }) {
+    return placeOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ShowCart value)? showCart,
+    TResult Function(_UpdateCart value)? updateCart,
+    TResult Function(_UpdateContentsLength value)? updateContentsLength,
+    TResult Function(_SelectCoupon value)? selectCoupon,
+    TResult Function(_SelectDeliveryMethord value)? selectDeliveryMethord,
+    TResult Function(_SelectTakeAwayTime value)? selectTakeAwayTime,
+    TResult Function(_AddInstruction value)? addInstruction,
+    TResult Function(_PlaceOrder value)? placeOrder,
+    required TResult orElse(),
+  }) {
+    if (placeOrder != null) {
+      return placeOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlaceOrder implements HomeEvent {
+  const factory _PlaceOrder(final bool placeOrder) = _$_PlaceOrder;
+
+  bool get placeOrder;
+  @JsonKey(ignore: true)
+  _$$_PlaceOrderCopyWith<_$_PlaceOrder> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   bool get showCart => throw _privateConstructorUsedError;
-  bool get showApplyCoupon => throw _privateConstructorUsedError;
   num? get selectedCoupon => throw _privateConstructorUsedError;
   String? get deliveryMethord => throw _privateConstructorUsedError;
   String? get takeAwayTime => throw _privateConstructorUsedError;
+  String? get instruction => throw _privateConstructorUsedError;
+  bool? get orderPlaced => throw _privateConstructorUsedError;
+  int get contentsLength => throw _privateConstructorUsedError;
   List<ProductModel> get products => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1021,10 +1482,12 @@ abstract class $HomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool showCart,
-      bool showApplyCoupon,
       num? selectedCoupon,
       String? deliveryMethord,
       String? takeAwayTime,
+      String? instruction,
+      bool? orderPlaced,
+      int contentsLength,
       List<ProductModel> products});
 }
 
@@ -1042,20 +1505,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? showCart = null,
-    Object? showApplyCoupon = null,
     Object? selectedCoupon = freezed,
     Object? deliveryMethord = freezed,
     Object? takeAwayTime = freezed,
+    Object? instruction = freezed,
+    Object? orderPlaced = freezed,
+    Object? contentsLength = null,
     Object? products = null,
   }) {
     return _then(_value.copyWith(
       showCart: null == showCart
           ? _value.showCart
           : showCart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showApplyCoupon: null == showApplyCoupon
-          ? _value.showApplyCoupon
-          : showApplyCoupon // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedCoupon: freezed == selectedCoupon
           ? _value.selectedCoupon
@@ -1069,6 +1530,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.takeAwayTime
           : takeAwayTime // ignore: cast_nullable_to_non_nullable
               as String?,
+      instruction: freezed == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      orderPlaced: freezed == orderPlaced
+          ? _value.orderPlaced
+          : orderPlaced // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      contentsLength: null == contentsLength
+          ? _value.contentsLength
+          : contentsLength // ignore: cast_nullable_to_non_nullable
+              as int,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
@@ -1086,10 +1559,12 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool showCart,
-      bool showApplyCoupon,
       num? selectedCoupon,
       String? deliveryMethord,
       String? takeAwayTime,
+      String? instruction,
+      bool? orderPlaced,
+      int contentsLength,
       List<ProductModel> products});
 }
 
@@ -1105,20 +1580,18 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? showCart = null,
-    Object? showApplyCoupon = null,
     Object? selectedCoupon = freezed,
     Object? deliveryMethord = freezed,
     Object? takeAwayTime = freezed,
+    Object? instruction = freezed,
+    Object? orderPlaced = freezed,
+    Object? contentsLength = null,
     Object? products = null,
   }) {
     return _then(_$_HomeState(
       showCart: null == showCart
           ? _value.showCart
           : showCart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showApplyCoupon: null == showApplyCoupon
-          ? _value.showApplyCoupon
-          : showApplyCoupon // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedCoupon: freezed == selectedCoupon
           ? _value.selectedCoupon
@@ -1132,6 +1605,18 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.takeAwayTime
           : takeAwayTime // ignore: cast_nullable_to_non_nullable
               as String?,
+      instruction: freezed == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      orderPlaced: freezed == orderPlaced
+          ? _value.orderPlaced
+          : orderPlaced // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      contentsLength: null == contentsLength
+          ? _value.contentsLength
+          : contentsLength // ignore: cast_nullable_to_non_nullable
+              as int,
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -1145,10 +1630,12 @@ class __$$_HomeStateCopyWithImpl<$Res>
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
       {this.showCart = true,
-      this.showApplyCoupon = false,
       this.selectedCoupon,
       this.deliveryMethord,
       this.takeAwayTime,
+      this.instruction,
+      this.orderPlaced,
+      this.contentsLength = 0,
       final List<ProductModel> products = AppDats.products})
       : _products = products;
 
@@ -1156,14 +1643,18 @@ class _$_HomeState implements _HomeState {
   @JsonKey()
   final bool showCart;
   @override
-  @JsonKey()
-  final bool showApplyCoupon;
-  @override
   final num? selectedCoupon;
   @override
   final String? deliveryMethord;
   @override
   final String? takeAwayTime;
+  @override
+  final String? instruction;
+  @override
+  final bool? orderPlaced;
+  @override
+  @JsonKey()
+  final int contentsLength;
   final List<ProductModel> _products;
   @override
   @JsonKey()
@@ -1175,7 +1666,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(showCart: $showCart, showApplyCoupon: $showApplyCoupon, selectedCoupon: $selectedCoupon, deliveryMethord: $deliveryMethord, takeAwayTime: $takeAwayTime, products: $products)';
+    return 'HomeState(showCart: $showCart, selectedCoupon: $selectedCoupon, deliveryMethord: $deliveryMethord, takeAwayTime: $takeAwayTime, instruction: $instruction, orderPlaced: $orderPlaced, contentsLength: $contentsLength, products: $products)';
   }
 
   @override
@@ -1185,14 +1676,18 @@ class _$_HomeState implements _HomeState {
             other is _$_HomeState &&
             (identical(other.showCart, showCart) ||
                 other.showCart == showCart) &&
-            (identical(other.showApplyCoupon, showApplyCoupon) ||
-                other.showApplyCoupon == showApplyCoupon) &&
             (identical(other.selectedCoupon, selectedCoupon) ||
                 other.selectedCoupon == selectedCoupon) &&
             (identical(other.deliveryMethord, deliveryMethord) ||
                 other.deliveryMethord == deliveryMethord) &&
             (identical(other.takeAwayTime, takeAwayTime) ||
                 other.takeAwayTime == takeAwayTime) &&
+            (identical(other.instruction, instruction) ||
+                other.instruction == instruction) &&
+            (identical(other.orderPlaced, orderPlaced) ||
+                other.orderPlaced == orderPlaced) &&
+            (identical(other.contentsLength, contentsLength) ||
+                other.contentsLength == contentsLength) &&
             const DeepCollectionEquality().equals(other._products, _products));
   }
 
@@ -1200,10 +1695,12 @@ class _$_HomeState implements _HomeState {
   int get hashCode => Object.hash(
       runtimeType,
       showCart,
-      showApplyCoupon,
       selectedCoupon,
       deliveryMethord,
       takeAwayTime,
+      instruction,
+      orderPlaced,
+      contentsLength,
       const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
@@ -1216,22 +1713,28 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {final bool showCart,
-      final bool showApplyCoupon,
       final num? selectedCoupon,
       final String? deliveryMethord,
       final String? takeAwayTime,
+      final String? instruction,
+      final bool? orderPlaced,
+      final int contentsLength,
       final List<ProductModel> products}) = _$_HomeState;
 
   @override
   bool get showCart;
-  @override
-  bool get showApplyCoupon;
   @override
   num? get selectedCoupon;
   @override
   String? get deliveryMethord;
   @override
   String? get takeAwayTime;
+  @override
+  String? get instruction;
+  @override
+  bool? get orderPlaced;
+  @override
+  int get contentsLength;
   @override
   List<ProductModel> get products;
   @override

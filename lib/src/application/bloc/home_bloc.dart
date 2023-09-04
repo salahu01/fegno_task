@@ -13,20 +13,28 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(showCart: !state.showCart));
     });
 
-    on<_ShowApplyCoupon>((event, emit) {
-      emit(state.copyWith(showApplyCoupon: true));
+    on<_UpdateContentsLength>((event, emit) {
+      emit(state.copyWith(contentsLength: event.length));
     });
 
     on<_SelectCoupon>((event, emit) {
-      emit(state.copyWith(selectedCoupon: event.discount ?? -1));
+      emit(state.copyWith(selectedCoupon: event.discount ?? -1, contentsLength: 2));
     });
 
     on<_SelectDeliveryMethord>((event, emit) {
-      emit(state.copyWith(deliveryMethord: event.deliveryMethird));
+      emit(state.copyWith(deliveryMethord: event.deliveryMethird, contentsLength: 3));
     });
 
     on<_SelectTakeAwayTime>((event, emit) {
-      emit(state.copyWith(takeAwayTime: event.time));
+      emit(state.copyWith(takeAwayTime: event.time, contentsLength: 4));
+    });
+
+    on<_AddInstruction>((event, emit) {
+      emit(state.copyWith(instruction: event.instruction, contentsLength: 6));
+    });
+
+    on<_PlaceOrder>((event, emit) {
+      emit(state.copyWith(orderPlaced: event.placeOrder));
     });
 
     on<_UpdateCart>((event, emit) {
