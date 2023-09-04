@@ -1,8 +1,5 @@
-import 'package:fegno_task/src/core/extensions/widget.extension.dart';
-import 'package:fegno_task/src/core/theme/app.colors.dart';
-import 'package:fegno_task/src/presentation/home/view/tabs/bag.view.dart';
-import 'package:fegno_task/src/presentation/home/view/tabs/items.view.dart';
-import 'package:fegno_task/src/presentation/home/view/tabs/shop.view.dart';
+import 'package:fegno_task/src/core/core.dart';
+import 'package:fegno_task/src/presentation/home/view/tabs/tabs.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -60,10 +57,10 @@ class HomeView extends StatelessWidget {
                 .toList(),
           ),
         ),
-        body:  TabBarView(
+        body: const TabBarView(
           children: [
-            const ShopView(),
-            const ItemsView(),
+            ShopView(),
+            ItemsView(),
             BagView(),
           ],
         ),
