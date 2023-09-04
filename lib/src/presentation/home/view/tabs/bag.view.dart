@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fegno_task/src/presentation/home/widgets/button.widget.dart';
 import 'package:fegno_task/src/presentation/home/widgets/message.widget.dart';
 import 'package:flutter/foundation.dart';
@@ -147,13 +145,13 @@ class BagView extends StatelessWidget {
                               children: [
                                 Center(
                                   child: Image.asset(
-                                    'assets/gift box.png',
+                                    'assets/success.png',
                                     height: 180,
                                     fit: BoxFit.cover,
                                   ),
                                 ).pOnly(bottom: 12),
                                 const Text('Yahoo!!!'),
-                                const Text('I won \$ 2'),
+                                const Text('I won \$10'),
                               ],
                             ).pad(12),
                           ),
@@ -202,7 +200,12 @@ class BagView extends StatelessWidget {
                             context.read<HomeBloc>().add(const HomeEvent.selectCoupon());
                           },
                         ).pOnly(bottom: 12),
-                        const KButton(text: 'Apply coupon').pOnly(bottom: 12)
+                        KButton(
+                          text: 'Apply coupon',
+                          onPressed: () {
+                            applyCouponDialog(context);
+                          },
+                        ).pOnly(bottom: 12)
                       ],
                     ),
                   );
@@ -210,36 +213,38 @@ class BagView extends StatelessWidget {
 
             //* select delivery methord
             BlocBuilder<HomeBloc, HomeState>(
-                buildWhen: (previous, current) => previous.deliveryMethord != current.deliveryMethord || current.contentsLength >= 2,
-                builder: (context, state) {
-                  return Visibility(
-                    visible: state.contentsLength >= 2,
-                    child: Visibility(
-                        visible: state.deliveryMethord == null,
-                        replacement: Message(isUser: true, text: 'I prefer ${state.deliveryMethord}').pOnly(bottom: 12),
-                        child: Column(
-                          children: [
-                            const Message(isUser: false, text: 'Select delivery methord').pOnly(bottom: 6),
-                            KButton(
-                              onPressed: () {
-                                context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Home delivery'));
-                              },
-                              isWhite: true,
-                              text: 'Home delivery',
-                              icon: Icons.home,
-                            ).pOnly(bottom: 6),
-                            KButton(
-                              onPressed: () {
-                                context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Take away'));
-                              },
-                              isWhite: true,
-                              text: 'Take away',
-                              icon: Icons.store_mall_directory_outlined,
-                            ),
-                          ],
-                        )),
-                  );
-                }),
+              buildWhen: (previous, current) => previous.deliveryMethord != current.deliveryMethord || current.contentsLength >= 2,
+              builder: (context, state) {
+                return Visibility(
+                  visible: state.contentsLength >= 2,
+                  child: Visibility(
+                    visible: state.deliveryMethord == null,
+                    replacement: Message(isUser: true, text: 'I prefer ${state.deliveryMethord}').pOnly(bottom: 12),
+                    child: Column(
+                      children: [
+                        const Message(isUser: false, text: 'Select delivery methord').pOnly(bottom: 6),
+                        KButton(
+                          onPressed: () {
+                            context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Home delivery'));
+                          },
+                          isWhite: true,
+                          text: 'Home delivery',
+                          icon: Icons.home,
+                        ).pOnly(bottom: 6),
+                        KButton(
+                          onPressed: () {
+                            context.read<HomeBloc>().add(const HomeEvent.selectDeliveryMethord('Take away'));
+                          },
+                          isWhite: true,
+                          text: 'Take away',
+                          icon: Icons.store_mall_directory_outlined,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
 
             //* Select TimeSlots
             BlocBuilder<HomeBloc, HomeState>(
@@ -281,7 +286,6 @@ class BagView extends StatelessWidget {
             BlocBuilder<HomeBloc, HomeState>(
                 buildWhen: (previous, current) => current.contentsLength >= 4 || current.instruction != previous.instruction || current.orderPlaced != previous.orderPlaced,
                 builder: (context, state) {
-                  log('message');
                   return Visibility(
                     visible: state.contentsLength >= 4,
                     child: Visibility(
@@ -380,11 +384,11 @@ class BagView extends StatelessWidget {
                             child: Message(isUser: true, text: state.instruction ?? ''),
                           ),
                           Visibility(
-                            visible: state.contentsLength == 6 && state.instruction != null,
+                            visible: state.contentsLength == 6 && state.instruction != null && state.orderPlaced == null,
                             child: const Message(isUser: false, text: 'Your instruction has been shared to the shop owner'),
                           ),
                           Visibility(
-                            visible: state.contentsLength == 6 || state.contentsLength == 4 && state.orderPlaced == null,
+                            visible: (state.contentsLength == 6 || state.contentsLength == 4) && state.orderPlaced == null,
                             child: Column(
                               children: [
                                 KButton(
@@ -397,6 +401,7 @@ class BagView extends StatelessWidget {
                                 KButton(
                                   text: 'Place order',
                                   onPressed: () {
+                                    placeOrderDialog(context);
                                     context.read<HomeBloc>().add(const HomeEvent.placeOrder(true));
                                   },
                                 ),
@@ -449,6 +454,135 @@ class BagView extends StatelessWidget {
               );
             }),
       ),
+    );
+  }
+
+  //* show apply coupon dialog
+  void applyCouponDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return Dialog(
+          child: SizedBox(
+            height: ctx.sizeOf.height * 0.6,
+            width: ctx.sizeOf.width * 0.6,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ListTile(
+                  leading: Icon(
+                    Icons.discount_outlined,
+                    color: context.theme.primaryColor,
+                  ),
+                  title: const Text('1 Unused Coupons'),
+                  subtitle: const Text('Apply coupon and get discount'),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    context.read<HomeBloc>().add(const HomeEvent.selectCoupon(discount: 10));
+                    context.pop();
+                    successCouponDialog(context);
+                  },
+                  child: Card(
+                    child: Image.asset(
+                      'assets/gift box.png',
+                      height: context.sizeOf.height * 0.1,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                const Divider(),
+                const Text('Note : Coupon will expire with in 2 days ').pSymmetric(y: 12),
+                KButton(
+                  text: 'Continue without applying',
+                  onPressed: () {
+                    context.read<HomeBloc>().add(const HomeEvent.selectCoupon());
+                    context.pop();
+                  },
+                ).pOnly(bottom: 12)
+              ],
+            ).pad(12),
+          ),
+        );
+      },
+    );
+  }
+
+  //* Success coupon Dialog
+  void successCouponDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return Dialog(
+          child: SizedBox(
+            height: ctx.sizeOf.height * 0.6,
+            width: ctx.sizeOf.width * 0.6,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('COUPON APPLIED!'),
+                Image.asset(
+                  'assets/gift box.png',
+                  height: context.sizeOf.height * 0.3,
+                ),
+                const Text('Congradulations, You\'ve saved').pOnly(bottom: 12),
+                Text(
+                  '\$ 10',
+                  style: TextStyle(color: context.theme.primaryColor, fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ).pad(12),
+          ),
+        );
+      },
+    );
+  }
+
+  //* Place Order Dialog
+  void placeOrderDialog(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 3)).then((_) {
+        context.pop();
+      });
+    });
+    showDialog(
+      barrierColor: context.theme.primaryColor,
+      context: context,
+      builder: (context) {
+        return Dialog(
+          elevation: 0,
+          child: ColoredBox(
+            color: context.theme.primaryColor,
+            child: SizedBox(
+              height: context.sizeOf.height,
+              width: context.sizeOf.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'HOOORAY',
+                    style: TextStyle(color: AppColors.white, fontSize: 32),
+                  ),
+                  CircleAvatar(
+                    radius: context.sizeOf.aspectRatio * 148,
+                    backgroundColor: AppColors.white,
+                    child: Icon(
+                      Icons.done,
+                      color: context.theme.primaryColor,
+                      size: context.sizeOf.aspectRatio * 180,
+                    ),
+                  ).pSymmetric(y: 48),
+                  const Text(
+                    'Your order has been placed successfully',
+                    style: TextStyle(color: AppColors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
